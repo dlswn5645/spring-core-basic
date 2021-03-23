@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Printer Bean -->
+    <bean id="printer" class="com.spring.core.basic.paper.Printer">
+        <constructor-arg ref="paper"/>
+    </bean>
+
+    <!-- Paper Bean -->
+    <bean id = "paper" class="com.spring.core.basic.paper.Paper"/>
+</beans>

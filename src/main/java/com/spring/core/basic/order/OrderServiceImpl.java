@@ -2,6 +2,7 @@ package com.spring.core.basic.order;
 
 import com.spring.core.basic.discount.DiscountPolicy;
 import com.spring.core.basic.discount.FixDiscountPolicy;
+import com.spring.core.basic.discount.RateDiscountPolicy;
 import com.spring.core.basic.member.Member;
 import com.spring.core.basic.member.MemberRepository;
 import com.spring.core.basic.member.MemoryMemberRepository;
@@ -11,9 +12,15 @@ import com.spring.core.basic.member.MemoryMemberRepository;
 //      할인을 적용한 주문을 생성해야함
 public class OrderServiceImpl implements OrderService{
 
-    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
-    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+//    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memoryRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memoryRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

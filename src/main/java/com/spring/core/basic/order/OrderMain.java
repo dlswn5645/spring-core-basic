@@ -1,5 +1,6 @@
 package com.spring.core.basic.order;
 
+import com.spring.core.basic.config.AppConfig;
 import com.spring.core.basic.member.Grade;
 import com.spring.core.basic.member.Member;
 import com.spring.core.basic.member.MemberService;
@@ -9,8 +10,10 @@ public class OrderMain {
     
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Member member1 = new Member(1L, "김철수", Grade.BASIC);
         Member member2 = new Member(2L, "박영희", Grade.VIP);

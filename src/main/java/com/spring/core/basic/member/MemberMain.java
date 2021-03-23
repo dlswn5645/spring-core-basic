@@ -1,10 +1,14 @@
 package com.spring.core.basic.member;
 
+import com.spring.core.basic.config.AppConfig;
+
 public class MemberMain {
 
     public static void main(String[] args) {
-        
-        MemberService memberService = new MemberServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
         
         //회원가입 대상 객체 
         Member member = new Member(1L,"김철수",Grade.VIP);

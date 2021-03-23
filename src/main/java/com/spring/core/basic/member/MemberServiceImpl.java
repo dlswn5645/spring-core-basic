@@ -5,7 +5,12 @@ package com.spring.core.basic.member;
 public class MemberServiceImpl implements MemberService{
 
     //메모리 저장소를 구현체로 사용(서비스와 저장소는 의존관계)
-    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    //생성자 선언
+    public MemberServiceImpl(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
